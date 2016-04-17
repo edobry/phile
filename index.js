@@ -2,7 +2,10 @@ var http = require("http"),
     nconf = require("nconf"),
     register = require("./register");
 
-nconf.argv();
+nconf.argv().defaults({
+    path: "",
+    app: "static"
+});
 
 var LOG = message => console.log(message);
 
@@ -17,4 +20,4 @@ var startServer = port => {
     }).listen(port);
 };
 
-register(nconf.get("path"), startServer);
+register(nconf.get("path"), nconf.get("app"), startServer);
