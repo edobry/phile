@@ -1,10 +1,10 @@
 var http = require("http"),
     nconf = require("nconf"),
-    register = require("./register");
+    register = require("mucks-register");
 
 nconf.argv().defaults({
     path: "",
-    app: "static"
+    app: "phile"
 });
 
 var LOG = message => console.log(message);

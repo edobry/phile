@@ -1,7 +1,15 @@
 {
-  "name": "static",
+  "name": "phile",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
-  "author": ""
+  "author": "Eugene Dobry <eugene@dobry.me>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/edobry/static"
+  },
+  "dependencies": {
+    "mucks-register": "0.0.1",
+    "nconf": "^0.8.4"
+  }
 }
