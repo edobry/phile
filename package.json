@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "mucks-register": "0.0.1",
-    "nconf": "^0.8.4"
+    "nconf": "^0.8.4",
+    "node-static": "^0.7.7"
   }
 }

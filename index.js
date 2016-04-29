@@ -1,23 +1,26 @@
 var http = require("http"),
     nconf = require("nconf"),
-    register = require("mucks-register");
+    register = require("mucks-register"),
+    static = require("node-static");
 
 nconf.argv().defaults({
-    path: "",
+    route: "",
+    dir: "",
     app: "phile"
 });
+
+var file = new static.Server(nconf.get("dir"));
 
 var LOG = message => console.log(message);
 
 var startServer = port => {
     LOG(`listening on port ${port}`);
     http.createServer((req, res) => {
-        LOG("received request");
+        LOG(`serving ${req.url}`);
 
-        var body = "";
-        req.on("data", (chunk) => body += chunk);
-        req.on("end", () => res.end(body));
+        req.on("end", () => file.serve(req, res)).resume();
     }).listen(port);
 };
 
-register(nconf.get("path"), nconf.get("app"), startServer);
+//TODO: make registering optional
+register(nconf.get("route"), nconf.get("app"), startServer);
