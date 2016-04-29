@@ -6,7 +6,7 @@
   "author": "Eugene Dobry <eugene@dobry.me>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/edobry/static"
+    "url": "https://github.com/edobry/phile"
   },
   "dependencies": {
     "mucks-register": "0.0.1",
