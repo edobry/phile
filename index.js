@@ -1,23 +1,29 @@
-var http = require("http"),
+const http = require("http"),
+
     nconf = require("nconf"),
-    register = require("mucks-register"),
-    static = require("node-static");
+    static = require("node-static"),
+
+    register = require("mucks-register");
 
 
-var LOG = message => console.log(message);
+const LOG = message => console.log(message);
 
-var startServer = file => port => {
+const startServer = file => port => {
     LOG(`listening on port ${port}`);
+
     http.createServer((req, res) => {
         LOG(`serving ${req.url}`);
 
-        req.on("end", () => file.serve(req, res)).resume();
+        req.on("end", () =>
+            file.serve(req, res)
+        ).resume();
     }).listen(port);
 };
 
-module.exports = (dir, route, app) => {
-    var file = new static.Server(dir);
+module.exports = (dir, route, appName) => {
+    const file = new static.Server(dir);
 
     //TODO: make registering optional
-    register(route, app, startServer(file));
+    return register(route, appName)
+        .then(startServer(file));
 };

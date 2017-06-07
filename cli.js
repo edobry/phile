@@ -1,9 +1,11 @@
-var nconf = require("nconf"),
+#!/usr/local/node
+const nconf = require("nconf"),
+
     phile = require("./index");
 
 nconf.argv().defaults({
-    route: "",
     dir: "",
+    route: "",
     app: "phile"
 });
 
