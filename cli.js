@@ -1,4 +1,5 @@
-#!/usr/local/node
+#!/usr/bin/env node
+
 const nconf = require("nconf"),
 
     phile = require("./index");

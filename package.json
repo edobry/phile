@@ -9,13 +9,13 @@
     "url": "https://github.com/edobry/phile"
   },
   "bin": {
-      "phile": "cli.js"
+    "phile": "cli.js"
   },
   "dependencies": {
     "bluebird": "^3.5.0",
-    "mucks-register": "0.0.1",
+    "mucks-register": "0.0.3",
     "nconf": "^0.8.4",
-    "node-static": "^0.7.7",
+    "node-static": "^0.7.9",
     "request-promise": "^4.2.1"
   }
 }

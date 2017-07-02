@@ -5,7 +5,6 @@ const http = require("http"),
 
     register = require("mucks-register");
 
-
 const LOG = message => console.log(message);
 
 const startServer = file => port => {
